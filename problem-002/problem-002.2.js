@@ -8,6 +8,10 @@
  find the sum of the even-valued terms.
  */
 
+/*
+Improvement: Move even check to initial fib sequence to reduce needed computations
+ */
+
 var evenFibNumbers = function(){
     var fibonacciNumbers = [0, 1];
     var evenFibonacciNumbers = [];
