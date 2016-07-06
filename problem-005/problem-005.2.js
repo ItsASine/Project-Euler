@@ -5,29 +5,32 @@
  */
 
 /*
-Improvement: Change iterating over i++ to i+=20 to greatly reduce runtime.
-Only every 20th number needs checked due to the 20 divisor.
+ Improvement: Change for loop to while loop and increment by the last item in the divisors array.
  */
 
-var euler5 = function() {
+var euler5 = function () {
     var i = 2520; //assuming solution is higher than the given example, so starting there
     var dividend;
-    var divisors = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20];
+    var divisors = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
     var solutionFound;
 
-    for(i; true; i+=20) {
+    while (true) {
         dividend = i;
 
-        solutionFound = divisors.every(function(divisor) {
+        solutionFound = divisors.every(function (divisor) {
             return dividend % divisor == 0;
         });
 
-        if(solutionFound) {
+        if (solutionFound) {
             break;
         }
+
+        i += divisors[divisors.length - 1];
     }
 
     console.log(i);
 };
 
+var start = Date.now();
 euler5();
+console.log('Time elapsed: ' + (Date.now() - start) + 'ms');

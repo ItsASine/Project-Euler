@@ -8,12 +8,12 @@ var isPalindrome = function (number) {
     var string = String(number);
     var length = string.length;
 
-    if (string[0] == string[length-1]) {
-        if (string[1] == string[length-2]) {
+    if (string[0] == string[length - 1]) {
+        if (string[1] == string[length - 2]) {
             if (length == 5) {
                 return true;
             } else {
-                if (string[2] == string[length-3]) {
+                if (string[2] == string[length - 3]) {
                     return true;
                 }
             }
@@ -41,4 +41,6 @@ var euler4 = function () {
     console.log(largest);
 };
 
+var start = Date.now();
 euler4();
+console.log('Time elapsed: ' + (Date.now() - start) + 'ms');

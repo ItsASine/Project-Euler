@@ -5,23 +5,25 @@
  Find the sum of all the multiples of 3 or 5 below 1000.
  */
 
-var euler1 = function(){
+var euler1 = function () {
     var multiplesOf3Or5 = [];
     var max = 1000;
     var sum;
     var i;
 
     for (i = 0; i < max; i++) {
-        if(i % 3 == 0 || i % 5 == 0) {
+        if (i % 3 == 0 || i % 5 == 0) {
             multiplesOf3Or5.push(i);
         }
     }
 
-    sum = multiplesOf3Or5.reduce(function(previousValue, currentValue) {
+    sum = multiplesOf3Or5.reduce(function (previousValue, currentValue) {
         return previousValue + currentValue;
     });
 
     console.log(sum);
 };
 
+var start = Date.now();
 euler1();
+console.log('Time elapsed: ' + (Date.now() - start) + 'ms');

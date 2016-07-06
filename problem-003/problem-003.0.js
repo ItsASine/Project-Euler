@@ -4,13 +4,13 @@
  What is the largest prime factor of the number 600851475143 ?
  */
 
-var euler3 = function(){
+var euler3 = function () {
     var number = 600851475143;
     var prime = 2;
 
-    while(prime <= number) {
-        if(number % prime == 0) {
-            number = number/prime;
+    while (prime <= number) {
+        if (number % prime == 0) {
+            number = number / prime;
         } else {
             prime++;
         }
@@ -19,4 +19,6 @@ var euler3 = function(){
     console.log(prime);
 };
 
+var start = Date.now();
 euler3();
+console.log('Time elapsed: ' + (Date.now() - start) + 'ms');

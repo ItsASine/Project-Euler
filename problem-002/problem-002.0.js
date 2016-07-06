@@ -7,34 +7,36 @@
  By considering the terms in the Fibonacci sequence whose values do not exceed four million,
  find the sum of the even-valued terms.
  */
-
-/*
-Improvement: Move even check to initial fib sequence to reduce needed computations
- */
-
-var evenFibNumbers = function(){
+var fibNumbers = function () {
     var fibonacciNumbers = [0, 1];
-    var evenFibonacciNumbers = [];
-    var i = fibonacciNumbers.length;
-    var currentNumber = fibonacciNumbers[i-1];
     var max = 4000000;
+    var currentNumber = 1;
+    var i = 2;
 
-    while(currentNumber < max) {
+    while (currentNumber < max) {
         fibonacciNumbers[i] = fibonacciNumbers[i - 2] + fibonacciNumbers[i - 1];
-
-        if (fibonacciNumbers[i] % 2 == 0) {
-            evenFibonacciNumbers.push(fibonacciNumbers[i]);
-        }
-
         currentNumber = fibonacciNumbers[i];
         i++;
     }
+
+    return fibonacciNumbers;
+};
+
+var evenFibNumbers = function (fibNumbers) {
+    var evenFibonacciNumbers = [];
+
+    fibNumbers.forEach(function (value) {
+        if (value % 2 == 0) {
+            evenFibonacciNumbers.push(value);
+        }
+    });
 
     return evenFibonacciNumbers;
 };
 
 var euler2 = function () {
-    var evenFibonacciNumbers = evenFibNumbers();
+    var fibonacciNumbers = fibNumbers();
+    var evenFibonacciNumbers = evenFibNumbers(fibonacciNumbers);
     var sum;
 
     sum = evenFibonacciNumbers.reduce(function (previousValue, currentValue) {
@@ -44,4 +46,6 @@ var euler2 = function () {
     console.log(sum);
 };
 
+var start = Date.now();
 euler2();
+console.log('Time elapsed: ' + (Date.now() - start) + 'ms');
